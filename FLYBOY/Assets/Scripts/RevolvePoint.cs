@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class RevolvePoint : MonoBehaviour {
-    
+
+    public float rotateSpeed = 30;
 
 	// Use this for initialization
 	void Start () {
@@ -12,6 +13,6 @@ public class RevolvePoint : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        gameObject.transform.Rotate(Vector3.up * (-30 * Time.deltaTime));
+        gameObject.transform.Rotate(Vector3.up * (-rotateSpeed * Time.deltaTime));
     }
 }

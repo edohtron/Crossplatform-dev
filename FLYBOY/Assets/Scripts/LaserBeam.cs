@@ -5,6 +5,7 @@ using UnityEngine;
 public class LaserBeam : MonoBehaviour {
 
     LineRenderer line;
+    public float maxDist = 500;
     //private AudioSource aud;
 
     void Start()
@@ -52,20 +53,22 @@ public class LaserBeam : MonoBehaviour {
 
             line.SetPosition(0, ray.origin);
 
-            if (Physics.Raycast(ray, out hit, 100))
+            if (Physics.Raycast(ray, out hit, maxDist))
                 //stops the line at whatever it hits
                 line.SetPosition(1, hit.point);
             if (hit.rigidbody)
             {
                 if (hit.rigidbody.gameObject.tag == "Enemy")
                 {
-                    
+                    //line.SetPosition(1, (hit.rigidbody.gameObject.transform.position));
+                    hit.rigidbody.gameObject.SetActive(false);
+                    Debug.Log("hit");
                 }
 
             }
             else
                 //if the line doesn't hit anything it automatically stops 100 points forward
-                line.SetPosition(1, ray.GetPoint(500));
+                line.SetPosition(1, ray.GetPoint(maxDist));
 
             yield return null;
         }
