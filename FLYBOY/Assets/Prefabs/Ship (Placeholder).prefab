@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4538540734950600}
-  - component: {fileID: 114352572147661210}
+  - component: {fileID: 114118686515231634}
   m_Layer: 0
   m_Name: Ship (Placeholder)
   m_TagString: Untagged
@@ -347,7 +347,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114352572147661210
+--- !u!114 &114118686515231634
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -364,3 +364,4 @@ MonoBehaviour:
   bulletSpawn2: {fileID: 4243971887505694}
   bulletSpeed: 250
   bulletLifeTime: 2
+  fireRate: 0.2
