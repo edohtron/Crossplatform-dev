@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4538540734950600}
+  - component: {fileID: 114352572147661210}
   m_Layer: 0
   m_Name: Ship (Placeholder)
   m_TagString: Untagged
@@ -62,6 +63,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1897447133843286
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4243971887505694}
+  m_Layer: 0
+  m_Name: BulletSpawn2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1913245145617724
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4955207337234126}
+  m_Layer: 0
+  m_Name: BulletSpawn1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1932716682445300
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,10 +120,24 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -14, y: 0, z: 24.5}
   m_LocalScale: {x: 4.9190974, y: 7.66186, z: 28.257051}
-  m_Children: []
+  m_Children:
+  - {fileID: 4955207337234126}
   m_Father: {fileID: 4538540734950600}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4243971887505694
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1897447133843286}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.67}
+  m_LocalScale: {x: 0.20328932, y: 0.17235713, z: 0.03538943}
+  m_Children: []
+  m_Father: {fileID: 4699439588620582}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -15, y: 0, z: 0}
 --- !u!4 &4501964112346808
 Transform:
   m_ObjectHideFlags: 1
@@ -112,7 +157,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1317095862732908}
-  m_LocalRotation: {x: -0.1330436, y: -0, z: -0, w: 0.99111027}
+  m_LocalRotation: {x: -0.13052624, y: 0, z: 0, w: 0.9914449}
   m_LocalPosition: {x: -121.94, y: 2.606, z: -241.24}
   m_LocalScale: {x: 1, y: 0.7572459, z: 1}
   m_Children:
@@ -121,7 +166,7 @@ Transform:
   - {fileID: 4699439588620582}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -15.291, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -15, y: 0, z: 0}
 --- !u!4 &4699439588620582
 Transform:
   m_ObjectHideFlags: 1
@@ -131,10 +176,24 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14, y: 0, z: 24.5}
   m_LocalScale: {x: 4.9190974, y: 7.6618533, z: 28.257025}
-  m_Children: []
+  m_Children:
+  - {fileID: 4243971887505694}
   m_Father: {fileID: 4538540734950600}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4955207337234126
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1913245145617724}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0, z: 0.67}
+  m_LocalScale: {x: 0.20328932, y: 0.17235698, z: 0.035389394}
+  m_Children: []
+  m_Father: {fileID: 4172126648424438}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -15, y: 0, z: 0}
 --- !u!23 &23415062865829652
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -288,3 +347,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114352572147661210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1317095862732908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8ea55a155d66134b94efa10b07f77f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1989612129085502, guid: ddbe9acaf73d78c4b80a3647f0bf24e1,
+    type: 2}
+  bulletSpawn1: {fileID: 4955207337234126}
+  bulletSpawn2: {fileID: 4243971887505694}
+  bulletSpeed: 250
+  bulletLifeTime: 2
