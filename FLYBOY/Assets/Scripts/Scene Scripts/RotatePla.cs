@@ -14,6 +14,14 @@ public class RotatePla : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        gameObject.transform.Rotate(Vector3.up * (speed * Time.deltaTime));
+        if(gameObject.tag == "Skybox")
+        {
+            gameObject.transform.Rotate(-Vector3.left * (speed * Time.deltaTime));
+        }
+        else
+        {
+        gameObject.transform.Rotate(Vector3.forward * (speed * Time.deltaTime));
+
+        }
     }
 }

@@ -24,14 +24,14 @@ public class LaserBeam : MonoBehaviour {
     {
         if (Time.timeScale != 0)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire2"))
             {
                 //aud.Play();
                 StopCoroutine("FireLaser");
                 StartCoroutine("FireLaser");
             }
         }
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonUp("Fire2"))
         {
             //aud.Stop();
         }
@@ -42,7 +42,7 @@ public class LaserBeam : MonoBehaviour {
         line.enabled = true;
         gameObject.GetComponent<Light>().enabled = true;
 
-        while (Input.GetButton("Fire1"))
+        while (Input.GetButton("Fire2"))
         {
             //makes the texture spin while the button is being held
             //line.GetComponent<Renderer>().material.mainTextureOffset = new Vector2(0, Time.time);
