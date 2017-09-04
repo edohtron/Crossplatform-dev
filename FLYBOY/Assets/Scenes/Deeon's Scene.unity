@@ -182,7 +182,7 @@ Prefab:
     - target: {fileID: 114498069899989368, guid: dc96d9fa5b29b4b43a2ec34049dcbaa4,
         type: 2}
       propertyPath: speed
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1317095862732908, guid: dc96d9fa5b29b4b43a2ec34049dcbaa4, type: 2}
       propertyPath: m_IsActive
@@ -570,6 +570,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 993774891}
+  - component: {fileID: 993774892}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -590,6 +591,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &993774892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 993774890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ead9ddc6cb395f49b75a38658cdafac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1427160760 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4538540734950600, guid: dc96d9fa5b29b4b43a2ec34049dcbaa4,
