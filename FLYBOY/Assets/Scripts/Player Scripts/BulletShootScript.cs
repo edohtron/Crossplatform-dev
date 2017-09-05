@@ -58,18 +58,28 @@ public class BulletShootScript : MonoBehaviour
             var bullet1 = (GameObject)Instantiate(
                 bulletPrefab,
                 bulletSpawn1.position,
+<<<<<<< HEAD
                 bulletSpawn1.rotation);
             bullet1.transform.parent = parent;
+=======
+                bulletSpawn1.rotation) as GameObject;
+            bullet1.transform.SetParent(parent);
+>>>>>>> 067826084138282c93748085132564267b59eb73
 
             var bullet2 = (GameObject)Instantiate(
                 bulletPrefab,
                 bulletSpawn2.position,
+<<<<<<< HEAD
                 bulletSpawn2.rotation);
             bullet2.transform.parent = parent;
+=======
+                bulletSpawn2.rotation) as GameObject;
+            bullet2.transform.SetParent(parent);
+>>>>>>> 067826084138282c93748085132564267b59eb73
 
             // Add velocity to the bullets.
-            bullet1.GetComponent<Rigidbody>().velocity = bullet1.transform.forward * bulletSpeed;
-            bullet2.GetComponent<Rigidbody>().velocity = bullet2.transform.forward * bulletSpeed;
+            //bullet1.GetComponent<Rigidbody>().velocity = bullet1.transform.forward * bulletSpeed;
+            //bullet2.GetComponent<Rigidbody>().velocity = bullet2.transform.forward * bulletSpeed;
 
             // Resets cooldown.
             coolDown = fireRate;
