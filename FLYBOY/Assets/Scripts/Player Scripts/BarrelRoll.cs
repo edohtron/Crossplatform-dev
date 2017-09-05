@@ -5,9 +5,11 @@ using UnityEngine;
 public class BarrelRoll : MonoBehaviour {
 
     float BarrelRollMax = 360;
-    float BarrelRollSpeed = 36;
+    float BarrelRollSpeed = 24;
     float CurrentAngle = 0;
     bool m_bBarrelRoll = false;
+    bool rollLeft = false;
+    bool rollRight = false;
 
     // Use this for initialization
     void Start () {
@@ -16,27 +18,35 @@ public class BarrelRoll : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float horiz = Input.GetAxis("Vertical") * 20.0f * Time.deltaTime;
-
-
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             m_bBarrelRoll = true;
+            rollLeft = true;
         }
 
-        if (m_bBarrelRoll)
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            m_bBarrelRoll = true;
+            rollRight = true;
+        }
+
+        if (m_bBarrelRoll && rollLeft)
         {
             CurrentAngle = CurrentAngle + 1;
             transform.Rotate(0, 0, BarrelRollSpeed);
         }
+        else if(m_bBarrelRoll && rollRight)
+        {
+            CurrentAngle = CurrentAngle + 1;
+            transform.Rotate(0, 0, -BarrelRollSpeed);
+        }
 
-
-
-        Debug.Log(CurrentAngle.ToString());
         if (CurrentAngle >= BarrelRollMax / BarrelRollSpeed)
         {
             CurrentAngle = 0;
             m_bBarrelRoll = false;
+            rollLeft = false;
+            rollRight = false;
         }
 	}
 
