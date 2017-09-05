@@ -10,14 +10,23 @@ public class BarrelRoll : MonoBehaviour {
     bool m_bBarrelRoll = false;
     bool rollLeft = false;
     bool rollRight = false;
+    float DashTimer = 0;
+    public GameObject aimTool;
 
     // Use this for initialization
     void Start () {
-		
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+        DashTimer -= Time.deltaTime;
+        if(DashTimer < 0)
+        {
+            DashTimer = 0;
+        }
+        
         if (Input.GetKeyDown(KeyCode.Q))
         {
             m_bBarrelRoll = true;
@@ -48,23 +57,33 @@ public class BarrelRoll : MonoBehaviour {
             rollLeft = false;
             rollRight = false;
         }
-	}
 
-    //IEnumerator barrelRollLeft()
-    //{
-    //
-    //
-    //
-    //
-    //    yield return null;
-    //}
-    //
-    //IEnumerator barrelRollRight()
-    //{
-    //
-    //
-    //
-    //
-    //    yield return null;
-    //}
+        if (!m_bBarrelRoll)
+        {
+            transform.LookAt(aimTool.transform);
+        }
+        else
+        {
+
+        }
+
+        if (DashTimer == 0)
+        {
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.A))
+            {
+                Vector3 destination = new Vector3(-25, 0, 0);
+                transform.Translate(destination);
+                DashTimer = 5.0f;
+            }
+
+            if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D))
+            {
+                Vector3 destination = new Vector3(25, 0, 0);
+                transform.Translate(destination);
+                DashTimer = 5.0f;
+            }
+        }
+    }
+
+   
 }
