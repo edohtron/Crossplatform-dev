@@ -8,6 +8,7 @@ public class BulletShootScript : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform bulletSpawn1;
     public Transform bulletSpawn2;
+    public Transform parent;
 
     // bullet attributes
     public int bulletSpeed = 6;
@@ -58,10 +59,13 @@ public class BulletShootScript : MonoBehaviour
                 bulletPrefab,
                 bulletSpawn1.position,
                 bulletSpawn1.rotation);
+            bullet1.transform.parent = parent;
+
             var bullet2 = (GameObject)Instantiate(
                 bulletPrefab,
                 bulletSpawn2.position,
                 bulletSpawn2.rotation);
+            bullet2.transform.parent = parent;
 
             // Add velocity to the bullets.
             bullet1.GetComponent<Rigidbody>().velocity = bullet1.transform.forward * bulletSpeed;
