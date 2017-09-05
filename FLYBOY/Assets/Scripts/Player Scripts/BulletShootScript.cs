@@ -8,7 +8,6 @@ public class BulletShootScript : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform bulletSpawn1;
     public Transform bulletSpawn2;
-    public Transform parent;
 
     // bullet attributes
     public int bulletSpeed = 6;
@@ -35,6 +34,7 @@ public class BulletShootScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Shoots bullets when "Fire1" input is given.
         if ((Input.GetAxis("Fire1") > 0))
         {
 
@@ -59,17 +59,15 @@ public class BulletShootScript : MonoBehaviour
                 bulletPrefab,
                 bulletSpawn1.position,
                 bulletSpawn1.rotation) as GameObject;
-            bullet1.transform.SetParent(parent);
 
             var bullet2 = (GameObject)Instantiate(
                 bulletPrefab,
                 bulletSpawn2.position,
                 bulletSpawn2.rotation) as GameObject;
-            bullet2.transform.SetParent(parent);
-
+ 
             // Add velocity to the bullets.
-            //bullet1.GetComponent<Rigidbody>().velocity = bullet1.transform.forward * bulletSpeed;
-            //bullet2.GetComponent<Rigidbody>().velocity = bullet2.transform.forward * bulletSpeed;
+            bullet1.GetComponent<Rigidbody>().velocity = bullet1.transform.forward * bulletSpeed;
+            bullet2.GetComponent<Rigidbody>().velocity = bullet2.transform.forward * bulletSpeed;
 
             // Resets cooldown.
             coolDown = fireRate;
