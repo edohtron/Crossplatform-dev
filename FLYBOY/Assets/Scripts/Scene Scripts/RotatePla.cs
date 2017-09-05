@@ -20,7 +20,7 @@ public class RotatePla : MonoBehaviour {
         }
         else
         {
-        gameObject.transform.Rotate(Vector3.forward * (speed * Time.deltaTime));
+        gameObject.transform.Rotate(Vector3.left * (speed * Time.deltaTime));
 
         }
     }
