@@ -30,7 +30,7 @@ public class EnemyControllerScript : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
-            player.GetComponent<PlayerMovement>().health -= 10;
+            //player.GetComponent<PlayerMovement>().health -= 10;
             Destroy(this.gameObject);
         }
     }

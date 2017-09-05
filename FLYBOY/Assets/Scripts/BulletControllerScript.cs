@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BulletControllerScript : MonoBehaviour
 {
-    public Rigidbody rb;
-    public Transform tr;
+    //public Rigidbody rb;
+    //public Transform tr;
     //public SphereCollider col;
 
 
@@ -23,7 +23,8 @@ public class BulletControllerScript : MonoBehaviour
 		
 	}
 
-    private void OnCollisionEnter(Collision col)
+    // Destroyes itself and enemy.
+    private void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.tag == "Enemy")
         {
