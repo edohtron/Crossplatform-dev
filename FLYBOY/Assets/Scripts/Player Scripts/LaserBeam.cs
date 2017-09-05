@@ -62,7 +62,6 @@ public class LaserBeam : MonoBehaviour {
                 {
                     //line.SetPosition(1, (hit.rigidbody.gameObject.transform.position));
                     hit.rigidbody.gameObject.SetActive(false);
-                    Debug.Log("hit");
                 }
 
             }

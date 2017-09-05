@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
             //MoveUp *= speed * Time.deltaTime;
             transform.Translate(MoveUp);
         }
-        if (transform.eulerAngles.x <= 15 && transform.eulerAngles.x >= 10)
+        if (transform.eulerAngles.x <= 30 && transform.eulerAngles.x >= 20)
         {
             //MoveDown *= speed * Time.deltaTime;
             transform.Translate(MoveDown);
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
             //MoveLeft *= speed * Time.deltaTime;
             transform.Translate(MoveLeft);
         }
-        if (transform.eulerAngles.y <= 20 && transform.eulerAngles.x >= 10)
+        if (transform.eulerAngles.y <= 30 && transform.eulerAngles.y >= 20)
         {
             //MoveRight *= speed * Time.deltaTime;
             transform.Translate(MoveRight);
