@@ -26,7 +26,8 @@ public class EnemyControllerScript : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
-            //player.GetComponent<PlayerMovement>().health -= 10;
+            player.GetComponent<PlayerHealth>().takeDamage(10.0f);
+ 
             Destroy(this.gameObject);
         }
     }
@@ -39,4 +40,6 @@ public class EnemyControllerScript : MonoBehaviour {
         // Move towards the player.
         transform.position += transform.forward * enemyMoveSpeed * Time.deltaTime;
     }
+
+
 }

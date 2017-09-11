@@ -7,37 +7,65 @@ public class PlayerHealth : MonoBehaviour {
 
     //hp 
     public float startHP = 100.0f;
-    private float currentHP;
+    public float currentHP;
     public Image healthBar;
     public Text HPdisplay;
 
     //life count
     private int livesRemaining;
     public Text livesDisplay;
+    bool isDead;
 
+    
     //score
     private int score;
     public Text scoreDisplay;
 
+  
+    public Transform spawnPos;
+    public GameObject notificationPanel;
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
+
         currentHP = startHP;
-        livesRemaining = 10;
-                	
+        livesRemaining = 5;
+        //notificationPanel.SetActive(false);
+        	
 	}
 
     // Update is called once per frame
     void Update() {
+        
+       if (currentHP <= 0 && livesRemaining > 0)
+       {
+            onDeath();
+       }
 
-        //currentHP -= .5f;
-        healthBar.fillAmount = currentHP / 100;
-
-        HPdisplay.text = currentHP.ToString("F0") + "%";
-
-        livesDisplay.text = "x" + livesRemaining.ToString();
-
-        scoreDisplay.text = "Score: " + score.ToString();
+       else if (livesRemaining == 0)
+       {
+            notificationPanel.SetActive(true);
+            //set game over state
+       }
+       
+       //update gui elements
+       healthBar.fillAmount = currentHP / 100.0f;
+       HPdisplay.text = currentHP.ToString("F0") + "%";
+       livesDisplay.text = "x" + livesRemaining.ToString();
+       scoreDisplay.text = "Score: " + score.ToString();
         
 	}
+
+    public void takeDamage(float damage)
+    {
+        currentHP -= damage;
+    }
+
+    private void onDeath()
+    {
+        currentHP = 100.0f;
+        gameObject.transform.position = spawnPos.position;
+        livesRemaining -= 1;
+        
+    }
 }
