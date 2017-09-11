@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AimScript : MonoBehaviour {
 
@@ -8,6 +9,7 @@ public class AimScript : MonoBehaviour {
     float h;
     float v;
     Vector3 direction = new Vector3();
+    public Image targeting;
 
     // Use this for initialization
     void Start () {
@@ -29,5 +31,8 @@ public class AimScript : MonoBehaviour {
         pos.y = Mathf.Clamp01(pos.y);
         transform.position = Camera.main.ViewportToWorldPoint(pos);
 
+
+        Vector3 imagePos = Camera.main.WorldToScreenPoint(transform.position);
+        targeting.transform.position = imagePos;
     }
 }
