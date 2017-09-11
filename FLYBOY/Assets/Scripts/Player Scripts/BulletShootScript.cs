@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CnControls;
 
 public class BulletShootScript : MonoBehaviour
 {
@@ -40,7 +41,7 @@ public class BulletShootScript : MonoBehaviour
     void Update()
     {
         // Shoots bullets when "Fire1" input is given.
-        if ((Input.GetAxis("Jump") > 0))
+        if ((Input.GetAxis("Jump") > 0) || CnInputManager.GetButton("Jump"))
         {
 
             Fire();

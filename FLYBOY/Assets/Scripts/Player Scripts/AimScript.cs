@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using CnControls;
 
 public class AimScript : MonoBehaviour {
 
@@ -19,8 +20,10 @@ public class AimScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        h = Input.GetAxis("Horizontal");
-        v = Input.GetAxis("Vertical");
+        //h = Input.GetAxis("Horizontal");
+        //v = Input.GetAxis("Vertical");
+        h = CnInputManager.GetAxis("Horizontal");
+        v = CnInputManager.GetAxis("Vertical");
         direction = new Vector3(h, v, 0);
         direction *= speed * Time.deltaTime;
 

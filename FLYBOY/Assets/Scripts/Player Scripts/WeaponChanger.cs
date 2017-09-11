@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using CnControls;
 
 public class WeaponChanger : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class WeaponChanger : MonoBehaviour
     public float SuperCD = 0.0f;
     LaserBeam beamScript;
     BulletShootScript bulletScript;
+    public Image superpower;
 
     // Use this for initialization
     void Awake()
@@ -33,13 +36,18 @@ public class WeaponChanger : MonoBehaviour
         {
             SuperCD = 0;
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift) && SuperCD == 0)
+        if(SuperCD <= 0)
+        {
+            
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift) || CnInputManager.GetButtonDown("SuperPower") && SuperCD == 0)
         {
             Super = true;
             //SuperTimer = 5.0f;
         }
        if(Super)
         {
+            superpower.enabled = false;
             beamScript.enabled = true;
             bulletScript.enabled = false;
             SuperTimer -= Time.deltaTime;
@@ -55,6 +63,7 @@ public class WeaponChanger : MonoBehaviour
         {
             beamScript.enabled = false;
             bulletScript.enabled = true;
+            superpower.enabled = true;
         }
     }
 }
