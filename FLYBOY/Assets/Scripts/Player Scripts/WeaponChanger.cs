@@ -36,9 +36,9 @@ public class WeaponChanger : MonoBehaviour
         {
             SuperCD = 0;
         }
-        if(SuperCD <= 0)
+        if(SuperCD == 0)
         {
-            
+            superpower.enabled = true;
         }
         if (Input.GetKeyUp(KeyCode.LeftShift) || CnInputManager.GetButtonDown("SuperPower") && SuperCD == 0)
         {
@@ -63,7 +63,6 @@ public class WeaponChanger : MonoBehaviour
         {
             beamScript.enabled = false;
             bulletScript.enabled = true;
-            superpower.enabled = true;
         }
     }
 }
