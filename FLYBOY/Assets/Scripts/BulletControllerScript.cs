@@ -20,7 +20,7 @@ public class BulletControllerScript : MonoBehaviour {
 		
 	}
 
-    void OnCollisionEnter(Collision col)
+    void OnTriggerEnter(Collision col)
     {
         Destroy(gameObject);
 
