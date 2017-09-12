@@ -8,8 +8,22 @@ public class EnemyShooterControllerScript : MonoBehaviour
 
     // Enemies are spawned by the EnemySpawnControllerScript.
 
-    public float enemyMoveSpeed;
-    GameObject player;
+    // Movement stuff
+    public float enemyMoveSpeed = 0;
+    GameObject player = null;
+    private float dist = 0;
+    public float attackRange = 0;
+
+    // Firing stuff
+    public GameObject bulletPrefab = null;
+    public Transform bulletSpawn = null;
+    public float fireRate = 2.0f;
+    private float coolDown = 0;
+    public float bulletSpeed = 50f;
+
+    // audio stuff
+    new AudioSource audio = null;
+    public float pitchRange = 0.1f;
 
     // Use this for initialization
     void Start()
@@ -20,7 +34,25 @@ public class EnemyShooterControllerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+
+        dist = transform.position.z - player.transform.position.z;
+
+        // if distant from player, move towards them.
+        if (dist >= attackRange)
+        {
+            Move();
+        }
+        // if within range, stop moving and shoot at player.
+        else if (dist <= attackRange)
+        {
+            Fire();
+        }
+
+        coolDown -= Time.deltaTime;
+        if (coolDown <= 0)
+        {
+            coolDown = 0;
+        }
     }
 
     private void OnTriggerEnter(Collider col)
@@ -41,8 +73,34 @@ public class EnemyShooterControllerScript : MonoBehaviour
         transform.position += transform.forward * enemyMoveSpeed * Time.deltaTime;
     }
 
-    void Shoot()
+    void Fire()
     {
+        // Look at the player.
+        transform.LookAt(player.transform.position);
+        if (coolDown == 0)
+        {
+            // resets the pitch.
+            audio.pitch = 1;
+            // creates the bullet.
+            Instantiate<GameObject>(bulletPrefab, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
+
+            var bullet = (GameObject)Instantiate(
+                bulletPrefab,
+                bulletSpawn.position,
+                bulletSpawn.rotation) as GameObject;
+            // alters the pitch a bit.
+            audio.pitch += Random.Range(pitchRange, -pitchRange);
+            // plays the fire sound.
+            audio.Play();
+
+            // Add velocity to the bullets.
+            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletSpeed;
+
+            // resets the cooldown so we can control the fire rate.
+            coolDown = fireRate;
+        }
+
+
 
     }
 }
