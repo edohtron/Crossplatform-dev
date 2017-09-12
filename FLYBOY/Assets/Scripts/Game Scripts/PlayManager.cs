@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
 
 public class PlayManager : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class PlayManager : MonoBehaviour
     public Text timer;
     float Timer = 5.0f;
     public GameObject player;
+    int planet;
+    public Material[] mats;
+    public GameObject world;
+    
 
     void Awake()
     {
@@ -19,7 +24,8 @@ public class PlayManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        planet = GameObject.FindGameObjectWithTag("Choice").GetComponent<ChoosePlanetScript>().choiceNo;
+        Destroy(GameObject.FindGameObjectWithTag("Choice"));
     }
 
     // Update is called once per frame
@@ -33,6 +39,20 @@ public class PlayManager : MonoBehaviour
         if(!start)
         {
             timer.enabled = false;
+        }
+
+        switch(planet)
+        {
+            case 1:
+
+                break;
+            case 2:
+                world.GetComponent<MeshRenderer>().material = mats[1];
+                break;
+            case 3:
+                world.GetComponent<MeshRenderer>().material = mats[0];
+                break;
+
         }
 
     }
