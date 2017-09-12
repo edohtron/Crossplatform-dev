@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CnControls;
 
 public class BulletShootScript : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class BulletShootScript : MonoBehaviour
     private float coolDown = 0;
     public float fireRate = 0.05f;
 
+    new AudioSource audio;
+    public float pitchRange = 0.1f;
+
 
     // Use this for initialization
     void Start()
@@ -26,7 +30,9 @@ public class BulletShootScript : MonoBehaviour
         // Initiate bool has IsOnCoolDown to false.
         // Calling Fire() sets IsOnCoolDown to true and Timer starts.
         // Fire() cannot be called again until IsOnCoolDown is false.
-        // When Timer runs out, IsOnCoolDown is set to false, and Timer resets to 0.		
+        // When Timer runs out, IsOnCoolDown is set to false, and Timer resets to 0.
+        // Audio
+        audio = GetComponent<AudioSource>();
 
 
     }
@@ -35,7 +41,7 @@ public class BulletShootScript : MonoBehaviour
     void Update()
     {
         // Shoots bullets when "Fire1" input is given.
-        if ((Input.GetAxis("Fire1") > 0))
+        if ((Input.GetAxis("Jump") > 0) || CnInputManager.GetButton("Jump"))
         {
 
             Fire();
@@ -54,6 +60,8 @@ public class BulletShootScript : MonoBehaviour
     {
         if (coolDown == 0)
         {
+
+            audio.pitch = 1;
             // Create the bullets from the Bullet prefab.
             var bullet1 = (GameObject)Instantiate(
                 bulletPrefab,
@@ -64,6 +72,12 @@ public class BulletShootScript : MonoBehaviour
                 bulletPrefab,
                 bulletSpawn2.position,
                 bulletSpawn2.rotation) as GameObject;
+
+            // Play the fire sound.
+             
+            audio.pitch += Random.Range(pitchRange, -pitchRange);
+            audio.Play();
+
  
             // Add velocity to the bullets.
             bullet1.GetComponent<Rigidbody>().velocity = bullet1.transform.forward * bulletSpeed;

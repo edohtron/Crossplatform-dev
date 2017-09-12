@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using CnControls;
 
 public class AimScript : MonoBehaviour {
 
@@ -8,6 +10,7 @@ public class AimScript : MonoBehaviour {
     float h;
     float v;
     Vector3 direction = new Vector3();
+    public Image targeting;
 
     // Use this for initialization
     void Start () {
@@ -17,17 +20,22 @@ public class AimScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        h = Input.GetAxis("Horizontal");
-        v = Input.GetAxis("Vertical");
+        //h = Input.GetAxis("Horizontal");
+        //v = Input.GetAxis("Vertical");
+        h = CnInputManager.GetAxis("Horizontal");
+        v = CnInputManager.GetAxis("Vertical");
         direction = new Vector3(h, v, 0);
         direction *= speed * Time.deltaTime;
 
         transform.Translate(direction);
 
-        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-        pos.x = Mathf.Clamp01(pos.x);
-        pos.y = Mathf.Clamp01(pos.y);
-        transform.position = Camera.main.ViewportToWorldPoint(pos);
+        //Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
+        //pos.x = Mathf.Clamp01(pos.x);
+        //pos.y = Mathf.Clamp01(pos.y);
+        //transform.position = Camera.main.ViewportToWorldPoint(pos);
 
+
+        Vector3 imagePos = Camera.main.WorldToScreenPoint(transform.position);
+        targeting.transform.position = imagePos;
     }
 }
