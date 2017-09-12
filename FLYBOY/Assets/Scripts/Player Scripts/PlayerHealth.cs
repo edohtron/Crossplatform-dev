@@ -61,6 +61,11 @@ public class PlayerHealth : MonoBehaviour {
         currentHP -= damage;
     }
 
+    public void addScore(int sc)
+    {
+        score += sc;
+    }
+
     private void onDeath()
     {
         currentHP = 100.0f;
@@ -68,4 +73,5 @@ public class PlayerHealth : MonoBehaviour {
         livesRemaining -= 1;
         
     }
+
 }
