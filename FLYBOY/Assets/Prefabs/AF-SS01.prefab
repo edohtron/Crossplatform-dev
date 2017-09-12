@@ -30,6 +30,9 @@ GameObject:
   - component: {fileID: 114900589199692270}
   - component: {fileID: 114240327753148752}
   - component: {fileID: 114902098063262642}
+  - component: {fileID: 82744443206133086}
+  - component: {fileID: 114020526671609314}
+  - component: {fileID: 114090371795054790}
   m_Layer: 0
   m_Name: AF-SS01
   m_TagString: Player
@@ -74,7 +77,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1052052318638310}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 564.6, z: -120.1}
+  m_LocalPosition: {x: 0, y: 564.56, z: -119.7}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4702560273221194}
@@ -174,6 +177,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 14.446795, y: 2.6328523, z: 10.685636}
   m_Center: {x: 0, y: 0.78630173, z: -2.0640645}
+--- !u!82 &82744443206133086
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1052052318638310}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 42488a5d5cdd2294eb9aef2a330766ac, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95860382011087960
 Animator:
   serializedVersion: 3
@@ -241,6 +324,39 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114020526671609314
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1052052318638310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3f0557edb235f46bcfbd046c396524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHP: 100
+  currentHP: 0
+  healthBar: {fileID: 0}
+  HPdisplay: {fileID: 0}
+  livesDisplay: {fileID: 0}
+  scoreDisplay: {fileID: 0}
+  spawnPos: {fileID: 0}
+  notificationPanel: {fileID: 0}
+--- !u!114 &114090371795054790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1052052318638310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 367aef45fd71a1c49920be5b57c24a9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SuperTimer: 5
+  SuperCD: 0
+  superpower: {fileID: 0}
 --- !u!114 &114136604402868736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -276,13 +392,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c22b6f2f0f362946a44252e6008f8b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1084884153875596, guid: 709f73e70f4e47c4991ff76f9e10b8b5,
+  bulletPrefab: {fileID: 1989612129085502, guid: ddbe9acaf73d78c4b80a3647f0bf24e1,
     type: 2}
   bulletSpawn1: {fileID: 4818928897345280}
   bulletSpawn2: {fileID: 4702560273221194}
   bulletSpeed: 100
   bulletLifeTime: 2
-  fireRate: 0.05
+  fireRate: 0.5
+  pitchRange: 0.1
 --- !u!114 &114902098063262642
 MonoBehaviour:
   m_ObjectHideFlags: 1

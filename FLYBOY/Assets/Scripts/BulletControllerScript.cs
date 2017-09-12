@@ -5,9 +5,6 @@ using UnityEngine;
 public class BulletControllerScript : MonoBehaviour {
 
 
-	// Use this for initialization
-	void Start ()
-
     GameObject player;
 
 
@@ -23,7 +20,7 @@ public class BulletControllerScript : MonoBehaviour {
 		
 	}
 
-    void OnCollisionEnter()
+    void OnCollisionEnter(Collision col)
     {
         Destroy(gameObject);
 
