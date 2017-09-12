@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Deeon's Scene.unity
     guid: 398a24cbbab22de4faf1a5bb414febbf
+  - enabled: 1
+    path: Assets/Scenes/Levels.unity
+    guid: 732d9c692b839df4384fb91f2656a998

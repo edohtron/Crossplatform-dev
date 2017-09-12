@@ -19,4 +19,9 @@ public class MainMenuScript : MonoBehaviour {
     {
         SceneManager.LoadScene(1);
     }
+
+    public void StateLevels()
+    {
+        SceneManager.LoadScene(2);
+    }
 }
