@@ -20,16 +20,15 @@ public class BulletControllerScript : MonoBehaviour {
 		
 	}
 
-    void OnTriggerEnter(Collision col)
+    void OnTriggerEnter(Collider col)
     {
-        Destroy(gameObject);
 
         if(col.gameObject.tag == "Enemy")
         {
             player.GetComponent<PlayerHealth>().addScore(2);
 
             Destroy(col.gameObject);
-            Destroy(this.gameObject);
         }
+        Destroy(gameObject);
     }
 }

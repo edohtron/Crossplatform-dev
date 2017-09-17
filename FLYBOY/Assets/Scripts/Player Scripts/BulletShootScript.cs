@@ -43,9 +43,7 @@ public class BulletShootScript : MonoBehaviour
         // Shoots bullets when "Fire1" input is given.
         if ((Input.GetAxis("Jump") > 0) || CnInputManager.GetButton("Jump"))
         {
-
             Fire();
-
         }
 
         coolDown -= Time.deltaTime;
@@ -61,7 +59,7 @@ public class BulletShootScript : MonoBehaviour
         if (coolDown == 0)
         {
 
-            audio.pitch = 1;
+            //audio.pitch = 1;
             // Create the bullets from the Bullet prefab.
             var bullet1 = (GameObject)Instantiate(
                 bulletPrefab,
@@ -75,8 +73,8 @@ public class BulletShootScript : MonoBehaviour
 
             // Play the fire sound.
              
-            audio.pitch += Random.Range(pitchRange, -pitchRange);
-            audio.Play();
+            //audio.pitch += Random.Range(pitchRange, -pitchRange);
+            //audio.Play();
 
  
             // Add velocity to the bullets.

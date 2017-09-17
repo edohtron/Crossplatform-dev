@@ -22,7 +22,7 @@ public class EnemyShooterControllerScript : MonoBehaviour
     public float bulletSpeed = 50f;
 
     // audio stuff
-    new AudioSource audio = null;
+    public AudioSource audio;
     public float pitchRange = 0.1f;
 
     // Use this for initialization
