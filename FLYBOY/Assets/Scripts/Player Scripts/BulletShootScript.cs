@@ -18,7 +18,7 @@ public class BulletShootScript : MonoBehaviour
     private float coolDown = 0;
     public float fireRate = 0.05f;
 
-    new AudioSource audio;
+    public AudioSource audio;
     public float pitchRange = 0.1f;
 
 

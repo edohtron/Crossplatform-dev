@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShooterControllerScript : MonoBehaviour
+public class EnemyShooterControllerScript : EnemyControllerScript
 {
 
 
     // Enemies are spawned by the EnemySpawnControllerScript.
 
     // Movement stuff
-    public float enemyMoveSpeed = 0;
-    GameObject player = null;
-    private float dist = 0;
+    //public float moveSpeed = enemyMoveSpeed;
+    //GameObject player = null;
+    public float dist = 0;
     public float attackRange = 0;
 
     // Firing stuff
@@ -22,7 +22,7 @@ public class EnemyShooterControllerScript : MonoBehaviour
     public float bulletSpeed = 50f;
 
     // audio stuff
-    public AudioSource audio;
+    new AudioSource audio;
     public float pitchRange = 0.1f;
 
     // Use this for initialization
@@ -64,7 +64,7 @@ public class EnemyShooterControllerScript : MonoBehaviour
         }
     }
 
-    void Move()
+    public override void Move()
     {
         // Look at the player.
         transform.LookAt(player.transform.position);

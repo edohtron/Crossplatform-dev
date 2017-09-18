@@ -8,12 +8,13 @@ public class EnemyControllerScript : MonoBehaviour {
     // Enemies are spawned by the EnemySpawnControllerScript.
 
     public float enemyMoveSpeed;
-    GameObject player;
+    public GameObject player;
 
 	// Use this for initialization
 	void Start ()
     {
         player = GameObject.FindWithTag("Player");
+        enemyMoveSpeed = 100;
 	}
 	
 	// Update is called once per frame
@@ -32,7 +33,7 @@ public class EnemyControllerScript : MonoBehaviour {
         }
     }
 
-    void Move()
+    public virtual void Move()
     {
         // Look at the player.
         transform.LookAt(player.transform.position);
