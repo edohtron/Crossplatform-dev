@@ -22,7 +22,7 @@ public class EnemyShooterControllerScript : EnemyControllerScript
     public float bulletSpeed = 50f;
 
     // audio stuff
-    new AudioSource audio;
+    //new AudioSource audio;
     public float pitchRange = 0.1f;
 
     // Use this for initialization
@@ -80,7 +80,7 @@ public class EnemyShooterControllerScript : EnemyControllerScript
         if (coolDown == 0)
         {
             // resets the pitch.
-            audio.pitch = 1;
+            //audio.pitch = 1;
             // creates the bullet.
             Instantiate<GameObject>(bulletPrefab, bulletSpawn.transform.position, bulletSpawn.transform.rotation);
 
@@ -89,9 +89,9 @@ public class EnemyShooterControllerScript : EnemyControllerScript
                 bulletSpawn.position,
                 bulletSpawn.rotation) as GameObject;
             // alters the pitch a bit.
-            audio.pitch += Random.Range(pitchRange, -pitchRange);
+           // audio.pitch += Random.Range(pitchRange, -pitchRange);
             // plays the fire sound.
-            audio.Play();
+           // audio.Play();
 
             // Add velocity to the bullets.
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * bulletSpeed;

@@ -14,18 +14,23 @@ public class PlayManager : MonoBehaviour
     int planet;
     public Material[] mats;
     public GameObject world;
-    
+    GameObject blr;
 
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        blr = GameObject.FindGameObjectWithTag("Choice");
     }
 
     // Use this for initialization
     void Start()
     {
-        planet = GameObject.FindGameObjectWithTag("Choice").GetComponent<ChoosePlanetScript>().choiceNo;
-        Destroy(GameObject.FindGameObjectWithTag("Choice"));
+        if (blr != null)
+        {
+            planet = blr.GetComponent<ChoosePlanetScript>().choiceNo;
+            Destroy(GameObject.FindGameObjectWithTag("Choice"));
+
+        }
     }
 
     // Update is called once per frame
@@ -36,12 +41,12 @@ public class PlayManager : MonoBehaviour
         {
             StartCoroutine("startTimer");
         }
-        if(!start)
+        if (!start)
         {
             timer.enabled = false;
         }
 
-        switch(planet)
+        switch (planet)
         {
             case 1:
 
