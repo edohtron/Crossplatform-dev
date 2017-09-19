@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using CnControls;
-#if UNITY_EDITOR 
-using UnityEditor.SceneManagement;
-#endif 
+using UnityEngine.SceneManagement;
 
 public class ChoosePlanetScript : MonoBehaviour {
 
@@ -76,6 +74,6 @@ public class ChoosePlanetScript : MonoBehaviour {
 
     public void Play()
     {
-        EditorSceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
 }
